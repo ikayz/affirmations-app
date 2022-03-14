@@ -1,11 +1,12 @@
 package com.ikayz.kotlin.affirmations
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ikayz.kotlin.affirmations.adapter.ItemAdapter
 import com.ikayz.kotlin.affirmations.data.Datasource
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         // Use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.setHasFixedSize(true)
 
     }
