@@ -3,6 +3,7 @@ package com.ikayz.kotlin.affirmations
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ikayz.kotlin.affirmations.adapter.ItemAdapter
 import com.ikayz.kotlin.affirmations.data.Datasource
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         // Use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
     }

@@ -1,6 +1,7 @@
 package com.ikayz.kotlin.affirmations
 
-import android.support.test.espresso.contrib.RecyclerViewActions
+import android.service.autofill.Validators.not
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
@@ -11,9 +12,18 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.regex.Pattern.matches
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import org.hamcrest.Matchers.containsString
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import org.hamcrest.Matchers.containsString
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 
 @RunWith(AndroidJUnit4::class)
-
 class AffirmationsListTest {
     @get:Rule
     val activity = ActivityScenarioRule(MainActivity::class.java)
@@ -21,13 +31,14 @@ class AffirmationsListTest {
     @Test
     fun scroll_to_item() {
         onView(withId(R.id.recycler_view)).perform(
-            androidx.test.espresso.contrib.RecyclerViewActions
+            RecyclerViewActions
                 .scrollTo<RecyclerView.ViewHolder>(
                     withText(R.string.affirmation10)
                 )
         )
 
-        onView(withText(R.string.affirmation10)).check(matches(isDisplayed()))
+        onView(withText(R.string.affirmation10))
+            .check(matches(isDisplayed()))
     }
 
 }
